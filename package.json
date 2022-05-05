@@ -1,0 +1,19 @@
+{
+  "name": "api-express-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hisahito/API-Express-DB.git"
+  },
+  "author": "Hisahito",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hisahito/API-Express-DB/issues"
+  },
+  "homepage": "https://github.com/Hisahito/API-Express-DB#readme"
+}
