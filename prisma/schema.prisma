@@ -18,4 +18,11 @@ model Explorer {
   dateCreated DateTime @default(now())
   lastUpdated DateTime @updatedAt
 }
-
+model newTable {
+  id Int @id @default(autoincrement())
+  name String @unique
+  lang String @db.VarChar(255)
+  missionCommander String @db.VarChar(255)
+  enrollments Int @default(0)
+  hasCertification Boolean @default(false)
+}
