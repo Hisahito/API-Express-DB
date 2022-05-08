@@ -18,14 +18,14 @@ app.listen(port, () => {
 
 // un nuevo endpoint GET que regrese todos los explorers.
 app.get('/explorers', async (req, res) => {
-    const allExplorers =  await prisma.explorer.findMany({});
+    const allExplorers =  await prisma.newTable.findMany({});
     res.json(allExplorers);
   });
 
 // un nuevo endpoint GET que te regrese el explorer al enviar un ID por query params.
 app.get('/explorers/:id', async (req, res) => {
     const id = req.params.id;
-    const explorer = await prisma.explorer.findUnique({where: {id: parseInt(id)}});
+    const explorer = await prisma.newTable.findUnique({where: {id: parseInt(id)}});
     res.json(explorer);
   });
 
@@ -33,11 +33,11 @@ app.get('/explorers/:id', async (req, res) => {
 app.post('/explorers', async (req, res) => {
     const explorer = {
       name: req.body.name,
-      username: req.body.username,
-      mission: req.body.mission
+      lang: req.body.lang,
+      missionCommander: req.body.missionCommander
      };
     const message = 'Explorer creado.';
-    await prisma.explorer.create({data: explorer});
+    await prisma.newTable.create({data: explorer});
     return res.json({message});
   });
 
@@ -45,12 +45,12 @@ app.post('/explorers', async (req, res) => {
 app.put('/explorers/:id', async (req, res) => {
 	const id = parseInt(req.params.id);
 
-	await prisma.explorer.update({
+	await prisma.newTable.update({
 		where: {
 			id: id
 		},
 		data: {
-			mission: req.body.mission
+			missionCommander: req.body.missionCommander
 		}
 	})
 
@@ -60,6 +60,6 @@ app.put('/explorers/:id', async (req, res) => {
 // un nuevo endpoint DELETE para eliminar un explorer dado un ID por query params.
 app.delete('/explorers/:id', async (req, res) => {
 	const id = parseInt(req.params.id);
-	await prisma.explorer.delete({where: {id: id}});
+	await prisma.newTable.delete({where: {id: id}});
 	return res.json({message: "Eliminado correctamente"});
 });
